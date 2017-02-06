@@ -110,7 +110,7 @@ describe('serve', () => {
       testRes.status = sinon.stub().returns(testRes);
       module.getContext = sinon.stub().returns('testContext');
       const handler = module._handlerBase(testFuncConf);
-      handler({}, testRes);
+      handler({body: []}, testRes);
       expect(testRes.status).to.have.been.calledWith(500);
       expect(testRes.send).to.have.been.calledWith(testHandlerErr);
     });
